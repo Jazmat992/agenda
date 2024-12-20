@@ -1,5 +1,5 @@
 <div class="table-responsive table-container">
-  <table class="table table-borderless custom-table table-hover">
+  <table [className]="'table custom-table table-hover ' + extraClass">
     <thead>
       <tr>
         @for (key of headerKeys; track $index) {

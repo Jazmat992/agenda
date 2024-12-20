@@ -30,6 +30,7 @@ export interface HeaderConfiguration {
 export class CustomTableComponent implements OnInit, OnChanges{
   @Input() headerConfiguration!: HeaderConfiguration;
   @Input() dataList: any[] = [];
+  @Input() extraClass: string = '';
   @Output() clickedRow: EventEmitter<number> = new EventEmitter<number>();
   
   paginatedData: any[] = []
