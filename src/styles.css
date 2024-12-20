@@ -1,0 +1,43 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #d6d6d6;
+}
+
+main {
+    flex: 1;
+    overflow: auto;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.b-list-h {
+    line-height: 40px;
+    height: 40px;
+}
+.custom-container {
+    min-height: 50vh;
+    max-height: 50vh;
+}
+
+a.nostyle:link {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+a.nostyle:visited {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+input.ng-invalid.ng-touched, .ng-select.ng-invalid.ng-touched {
+    border: 1px solid red;
+ }

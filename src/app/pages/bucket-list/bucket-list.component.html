@@ -1,0 +1,33 @@
+@if (bucketList == undefined) {
+  <app-loading-spinner></app-loading-spinner>
+  } @else {
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Bucket list</h3>
+    </div>
+  </div>
+  @if (createNew) {
+    <app-bucket-list-create (newBucket)="addNewBucket($event)" (hideCreate)="onHideCreate($event)"></app-bucket-list-create>
+  }
+  <div class="row mt-4 bg-light p-3 custom-container">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12 b-list-h">
+          All buckets ({{bucketList.length}})
+          @if (!createNew) {<button type="button" (click)="showCreate()" class="btn btn-primary float-end">Create New Bucket</button>}
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-sm-12">
+          <app-custom-table 
+            [dataList]="bucketList"
+            [headerConfiguration]="headerConfiguration"
+            (clickedRow)="onRowClick($event)"
+          ></app-custom-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  }

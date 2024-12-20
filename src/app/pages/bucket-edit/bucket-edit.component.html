@@ -1,0 +1,70 @@
+@if (bucketInfo == undefined) {
+<app-loading-spinner></app-loading-spinner>
+} @else {
+
+<div class="container mt-2">
+	<div class="row">
+		<div class="col-sm-12">
+			<h3>{{bucketInfo.name}}</h3>
+		</div>
+	</div>
+	<div class="row mt-2">
+		<ul ngbNav #nav="ngbNav" class="nav-tabs p-0">
+			<li [ngbNavItem]="1">
+				<button ngbNavLink>Files</button>
+				<ng-template ngbNavContent>
+					<div class="row bg-light p-3 custom-container">
+						<div class="col-sm-12">
+							<div class="row">
+								<div class="col-sm-12 d-flex justify-content-between">
+									<div class="b-list-h">
+										All files ({{bucketInfo.files.length}})
+									</div>
+									<div>
+										<button type="button" (click)="fileDelete()" class="btn btn-danger me-2">Delete Object</button>
+										<input class="d-none" #file type="file" multiple accept="*" (change)="fileUpload($event)">
+										<button #upload (click)="file.click()" type="button" class="btn btn-primary">Upload Object</button>
+									</div>
+								</div>
+							</div>
+							<div class="row mt-4">
+								<div class="col-sm-12">
+									<app-custom-table [dataList]="bucketInfo.files" [headerConfiguration]="headerConfiguration" (clickedRow)="toggleRowSelection($event)"></app-custom-table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</ng-template>
+			</li>
+			<li [ngbNavItem]="2">
+				<button ngbNavLink>Bucket detials</button>
+				<ng-template ngbNavContent>
+					<div class="row bg-light p-3 custom-container">
+						<div class="col-sm-12">
+							<div class="d-flex">
+								<div class="bucket-label">Bucket name:</div>
+								<div class="bucket-value">{{bucketInfo.name}}</div>
+							</div>
+							<div class="d-flex">
+								<div class="bucket-label">Location:</div>
+								<div class="bucket-value">{{bucketInfo.location}}</div>
+							</div>
+							<div class="d-flex">
+								<div class="bucket-label">Storage size:</div>
+								<div class="bucket-value">{{bucketInfo.files | totalStorage | fileSize}}</div>
+							</div>
+						</div>
+					</div>
+				</ng-template>
+			</li>
+			@if(nav.activeId === 2) {
+				<li ngbNavItem class="ms-auto">
+					<button type="button" (click)="deleteBucket()" class="btn btn-danger">Delete bucket</button>
+				</li>
+			}
+		</ul>
+	</div>
+	<div [ngbNavOutlet]="nav"></div>	
+
+</div>
+}

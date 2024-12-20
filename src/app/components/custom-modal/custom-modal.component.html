@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{modalData.title}}</h4>
+  </div>
+  <div class="modal-body">
+    <p>{{modalData.body}}</p>
+  </div>
+  <div class="modal-footer">
+    @if (modalData.showSubmit) {
+        <button type="button" class="btn btn-secondary" (click)="onSubmit()">{{modalData.submitText}}</button>
+    }
+    <button type="button" class="btn btn-secondary" (click)="activeModal.close()">{{modalData.cancelText}}</button>
+  </div>

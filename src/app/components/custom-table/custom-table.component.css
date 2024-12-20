@@ -1,0 +1,14 @@
+.custom-table {
+    border: 2px solid black;
+    thead {
+        border-bottom: 2px solid black;
+        
+    }
+    th {
+        background-color: gray !important;
+    }
+}
+.table-container {
+    max-height: 40vh;
+    overflow: auto;
+}
