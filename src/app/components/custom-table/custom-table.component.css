@@ -12,3 +12,11 @@
     max-height: 40vh;
     overflow: auto;
 }
+
+.custom-table tbody tr {
+    vertical-align: middle;
+}
+
+.table-image{
+    vertical-align: middle;
+}

@@ -15,12 +15,19 @@
     </thead>
     <tbody>
       @for (item of paginatedData; track $index) {
-      <tr 
-        [class.table-active]="item.selected"
-        (click)="onRowClick($index)">
+      <tr [class.table-active]="item.selected" (click)="onRowClick($index)">
         @for (key of headerKeys; track key){
-        <td>{{item[key] | tableDataPipe : headerConfiguration[key].type}}</td>
-
+        @if(headerConfiguration[key].showImage) {
+        <td>
+          <i [className]="headerConfiguration[key].imageClass + ' table-image'"
+            [style.font-size]="(headerConfiguration[key].imageSize ? headerConfiguration[key].imageSize : 40) + 'px'"></i>
+          {{ item[key] | tableDataPipe : headerConfiguration[key].type}}
+        </td>
+        } @else {
+        <td>
+          {{ item[key] | tableDataPipe : headerConfiguration[key].type}}
+        </td>
+        }
         }
       </tr>
       } @empty {
@@ -33,11 +40,7 @@
 </div>
 
 <div class="d-flex justify-content-end">
-  <ngb-pagination
-    [collectionSize]="dataList.length ? dataList.length : 1"
-    [(page)]="currentPage"
-    [pageSize]="itemsPerPage"
-    (pageChange)="onPageChange($event)"
-    aria-label="Pagination">
+  <ngb-pagination [collectionSize]="dataList.length ? dataList.length : 1" [(page)]="currentPage"
+    [pageSize]="itemsPerPage" (pageChange)="onPageChange($event)" aria-label="Pagination">
   </ngb-pagination>
 </div>

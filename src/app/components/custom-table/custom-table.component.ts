@@ -14,6 +14,9 @@ export interface HeaderConfiguration {
     type: HeaderConfiguationTypes;
     width?: number,
     title: string;
+    showImage?: boolean,
+    imageClass?: string;
+    imageSize?: number
   }
 }
 
@@ -33,6 +36,7 @@ export class CustomTableComponent implements OnInit, OnChanges{
   currentPage: number = 1;
   headerKeys!: string[];
   itemsPerPage: number = 5;
+  someHtml = ' <i class="bi bi-file-earmark-pdf" style="font-size: 40px; color: red;"></i>';
   constructor() {
     
   }
