@@ -146,7 +146,7 @@ export class BucketEditComponent implements OnInit {
             ref.componentInstance.modalData = modalData;
           }
         });
-      });
+      }, (reason) => {});
     } else {
       const ref = this.modalService.open(CustomModalComponent, {
         centered: true,
