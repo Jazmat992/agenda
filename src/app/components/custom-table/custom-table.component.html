@@ -17,7 +17,7 @@
       @for (item of paginatedData; track $index) {
       <tr [class.table-active]="item.selected" (click)="onRowClick($index)">
         @for (key of headerKeys; track key){
-        @if(headerConfiguration[key].showImage) {
+        @if(headerConfiguration[key].imageClass) {
         <td>
           <i [className]="headerConfiguration[key].imageClass + ' table-image'"
             [style.font-size]="(headerConfiguration[key].imageSize ? headerConfiguration[key].imageSize : 40) + 'px'"></i>

@@ -14,7 +14,6 @@ export interface HeaderConfiguration {
     type: HeaderConfiguationTypes;
     width?: number,
     title: string;
-    showImage?: boolean,
     imageClass?: string;
     imageSize?: number
   }

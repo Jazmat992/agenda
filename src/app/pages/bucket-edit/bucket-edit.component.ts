@@ -41,7 +41,6 @@ export class BucketEditComponent implements OnInit {
       title: 'Name',
       type: HeaderConfiguationTypes.STRING,
       width: 50,
-      showImage: true,
       imageClass: 'bi bi-file-earmark-pdf',
       imageSize: 30
     },
